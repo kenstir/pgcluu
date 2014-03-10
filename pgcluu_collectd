@@ -1293,7 +1293,7 @@ sub dump_pgstatlocktypes
 {
 
 	my $sql = sprintf(
-		"SELECT date_trunc('seconds', now()), current_database(), 'lock_type' as label, " .
+		"SELECT date_trunc('seconds', now()), current_database(), 'lock_type'::text as label, " .
 		"locktype, count(locktype) as count " .
 		"FROM pg_locks GROUP BY locktype"
 	);
@@ -1305,7 +1305,7 @@ sub dump_pgstatlockmodes
 {
 
 	my $sql = sprintf(
-		"SELECT date_trunc('seconds', now()), current_database(), 'lock_mode' as label, " .
+		"SELECT date_trunc('seconds', now()), current_database(), 'lock_mode'::text as label, " .
 		"mode, count(mode) as count " .
 		"FROM pg_locks GROUP BY mode"
 	);
@@ -1317,7 +1317,7 @@ sub dump_pgstatlockgranted
 {
 
 	my $sql = sprintf(
-		"SELECT date_trunc('seconds', now()), current_database(), 'lock_granted' as label, " .
+		"SELECT date_trunc('seconds', now()), current_database(), 'lock_granted'::text as label, " .
 		"granted, count(granted) as count " .
 		"FROM pg_locks GROUP BY granted"
 	);
